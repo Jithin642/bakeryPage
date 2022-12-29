@@ -7,33 +7,31 @@ export default function Product({ item }) {
   const calculatePrice = () => {
     let priceOfItem = parseInt(localStorage.getItem(item.id), 10);
     let TotalPriceTillNow = parseInt(localStorage.getItem("Tvalue"), 10);
-    let TotalPrice = priceOfItem + TotalPriceTillNow;
-    localStorage.removeItem("Tvalue");
-    localStorage.setItem("Tvalue", JSON.stringify(TotalPrice));
-
     let numProducts = parseInt(localStorage.getItem("Tproducts"), 10);
+
+    localStorage.removeItem("Tvalue");
+    localStorage.removeItem("Tproducts");
+    let TotalPrice;
+
+    if(Type==false){
+    
+    TotalPrice = priceOfItem + TotalPriceTillNow;
     numProducts++;
-    localStorage.removeItem("Tproducts");
-    localStorage.setItem("Tproducts", JSON.stringify(numProducts));
-
     setType(true);
-  };
 
-  const calculatePrice2 = () => {
-    let priceOfItem = parseInt(localStorage.getItem(item.id), 10);
-    let TotalPriceTillNow = parseInt(localStorage.getItem("Tvalue"), 10);
+    }
+    else{
 
-    let TotalPrice = TotalPriceTillNow - priceOfItem;
-    localStorage.removeItem("Tvalue");
+        TotalPrice=TotalPriceTillNow-priceOfItem;
+        numProducts--;
+        setType(false);
+    }
     localStorage.setItem("Tvalue", JSON.stringify(TotalPrice));
-
-    let numProducts = parseInt(localStorage.getItem("Tproducts"), 10);
-    numProducts--;
-    localStorage.removeItem("Tproducts");
     localStorage.setItem("Tproducts", JSON.stringify(numProducts));
 
-    setType(false);
+    
   };
+
   const [Type, setType] = useState(false);
 
   return (
@@ -51,7 +49,7 @@ export default function Product({ item }) {
             </button> */}
             {!Type && <button onClick={calculatePrice}>Add to cart</button>}
             {Type && (
-              <button onClick={calculatePrice2}>Remove from cart</button>
+              <button onClick={calculatePrice}>Remove from cart</button>
             )}
           </div>
         </div>
