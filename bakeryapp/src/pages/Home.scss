@@ -1,0 +1,51 @@
+
+@media screen and (min-width: 700px) {
+    
+
+.Home {
+    // background-color: silver;
+    .bottom{
+        display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+   
+}
+.newproducts {
+    text-align: center;
+    font-weight: 900;
+}
+ }
+   
+ .slider{
+    height: 500px;
+    // background-color: red;    
+ }
+}
+
+@media screen  and (min-width:200px) and (max-width:700px){
+
+    .Home {
+        // background-color: silver;
+        .bottom{
+            display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    
+       
+    }
+    .newproducts {
+        text-align: center;
+        font-weight: 900;
+    }
+     }
+       
+     .slider{
+        height: 200px;
+        // background-color: red;    
+     }
+    
+}
+
+
+
