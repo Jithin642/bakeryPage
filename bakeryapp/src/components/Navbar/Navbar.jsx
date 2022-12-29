@@ -25,10 +25,10 @@ const Navbar = () => {
         <div className="right">
           <div className="icons">
             <PersonOutlineIcon />
-            <div className="carticon">
+            {/* <div className="carticon">
               <ShoppingCartIcon />
               <span>{numProducts}</span>
-            </div>
+            </div> */}
 
             <button onClick={print}>checkout</button>
           </div>
