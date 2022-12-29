@@ -13,3 +13,5 @@ The link to checkout page at the bottom will take you to checkout page.
 In checkout page you can see number of products added and total cost of all products.
 
 Checkout page is just to show routing. 
+
+On hover to see different image
