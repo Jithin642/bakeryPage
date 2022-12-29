@@ -13,23 +13,17 @@ export default function Product({ item }) {
     localStorage.removeItem("Tproducts");
     let TotalPrice;
 
-    if(Type==false){
-    
-    TotalPrice = priceOfItem + TotalPriceTillNow;
-    numProducts++;
-    setType(true);
-
-    }
-    else{
-
-        TotalPrice=TotalPriceTillNow-priceOfItem;
-        numProducts--;
-        setType(false);
+    if (Type == false) {
+      TotalPrice = priceOfItem + TotalPriceTillNow;
+      numProducts++;
+      setType(true);
+    } else {
+      TotalPrice = TotalPriceTillNow - priceOfItem;
+      numProducts--;
+      setType(false);
     }
     localStorage.setItem("Tvalue", JSON.stringify(TotalPrice));
     localStorage.setItem("Tproducts", JSON.stringify(numProducts));
-
-    
   };
 
   const [Type, setType] = useState(false);
@@ -38,7 +32,8 @@ export default function Product({ item }) {
     <div>
       <div className="product">
         <div className="image">
-          <img src={item.url} className="image1" />
+          <img src={item.url} className="mainImg" />
+          <img src={item.url2} ait="no image" className="secondImg" />
         </div>
         <div className="wrapper">
           <div className="itemname">{item.description}</div>
@@ -48,9 +43,7 @@ export default function Product({ item }) {
                 {Type}
             </button> */}
             {!Type && <button onClick={calculatePrice}>Add to cart</button>}
-            {Type && (
-              <button onClick={calculatePrice}>Remove from cart</button>
-            )}
+            {Type && <button onClick={calculatePrice}>Remove from cart</button>}
           </div>
         </div>
       </div>
