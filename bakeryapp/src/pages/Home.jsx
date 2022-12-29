@@ -49,7 +49,9 @@ export default function Home() {
                 <Product item={item} key={item.id} />
             )}
         </div>
+        <div className="link">
         <Link to="/Checkout">Link to checkout page</Link>
+        </div>
         
     </div>
   )
